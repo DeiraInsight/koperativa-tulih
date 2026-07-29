@@ -1,0 +1,319 @@
+/* ========================================
+   STYLE GLOBAL (style.css)
+   ======================================== */
+
+/* ===== ROOT VARIABLES (WARNA PRIMARY TULIH) ===== */
+:root {
+    --brand-dark: #3E4C4D;      /* warna utama gelap */
+    --brand-teal: #5B6C6D;      /* warna sekunder */
+    --brand-gold: #CCA00D;      /* warna aksen emas */
+    --white: #FFFFFF;
+    
+    /* Turunan */
+    --primary-gradient: linear-gradient(135deg, var(--brand-dark), var(--brand-teal));
+    --gold-gradient: linear-gradient(135deg, var(--brand-gold), #d4a814);
+    --shadow-gold: rgba(204, 160, 13, 0.35);
+}
+
+/* ----- Container Umum ----- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem 3rem;
+}
+
+/* ----- Hero Section (Global untuk Spanduk Halaman) ----- */
+.about-hero {
+    background: linear-gradient(135deg, var(--brand-dark), var(--brand-teal));
+    color: var(--white);
+    padding: 4rem 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.about-hero h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.about-hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ===== HEADER ===== */
+#main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2.5rem;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 2px solid var(--brand-gold);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    transition: background 0.3s ease;
+}
+
+#main-header.scrolled {
+    background: var(--white);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    gap: 0.80rem;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--brand-dark);
+    transition: transform 0.3s ease;
+}
+
+.logo a:hover {
+    transform: scale(1.05);
+}
+
+.logo img {
+    height: 80px;
+    width: auto;
+    display: block;
+}
+
+#main-nav a {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--brand-dark);
+    text-decoration: none;
+    border-radius: 40px;
+    transition: all 0.25s ease;
+    position: relative;
+    letter-spacing: 0.3px;
+}
+
+#main-nav a:hover {
+    background: var(--brand-gold);
+    color: var(--white);
+    box-shadow: 0 8px 20px var(--shadow-gold);
+    transform: translateY(-2px);
+}
+
+#main-nav a.active {
+    background: var(--brand-gold);
+    color: var(--white) !important;
+    box-shadow: 0 4px 14px var(--shadow-gold);
+    transform: none;
+}
+
+#main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: var(--brand-gold);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+#main-nav a:hover::after {
+    width: 60%;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.hamburger:hover {
+    background: rgba(204, 160, 13, 0.15);
+}
+
+.hamburger span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background: var(--brand-dark);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+/* ===== FOOTER ===== */
+#main-footer {
+    background: var(--brand-dark);
+    color: #e0e0e0;
+    padding: 3rem 2rem 1.5rem;
+    margin-top: 3rem;
+    border-top: 4px solid var(--brand-gold);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid !important;
+    grid-template-columns: 2fr 1fr 1.5fr 1fr !important;
+    gap: 2rem !important;
+}
+
+.footer-col {
+    min-width: 0;
+}
+
+.footer-about p {
+    max-width: 300px;
+}
+
+.footer-col h4 {
+    color: var(--white);
+}
+
+.footer-col h4::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: var(--brand-gold);
+    margin-top: 0.3rem;
+    border-radius: 4px;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 0.6rem;
+}
+
+.footer-col ul li a:hover {
+    color: var(--brand-gold);
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.footer-logo span {
+    color: var(--white);
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.footer-logo img {
+    height: 50px;
+    width: auto;
+}
+
+.footer-contact ul li i {
+    width: 1.6rem;
+    color: var(--brand-gold);
+    font-size: 1rem;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    color: #e0e0e0 !important;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.social-icons a:hover {
+    background: var(--brand-gold);
+    color: var(--white) !important;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px var(--shadow-gold);
+    border-color: var(--brand-gold);
+}
+
+.footer-links ul li a {
+    color: #cccccc !important;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-links ul li a:hover {
+    color: var(--brand-gold) !important;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 2rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* ===== RESPONSIVE FOOTER ===== */
+@media (max-width: 900px) {
+    .footer-container {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 2rem 3rem !important;
+    }
+    .footer-about {
+        grid-column: 1 / -1 !important;
+    }
+    .footer-about p {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-container {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+    .footer-about {
+        grid-column: auto !important;
+    }
+    .footer-logo span {
+        font-size: 1.6rem;
+    }
+    .footer-logo img {
+        height: 40px;
+    }
+    #main-footer {
+        padding: 2rem 1rem 1.5rem;
+    }
+}
