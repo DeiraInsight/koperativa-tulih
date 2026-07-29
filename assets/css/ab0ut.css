@@ -1,1 +1,344 @@
+/* ========================================
+   STYLE KHUSUS HALAMAN ABOUT (style_about.css)
+   ======================================== */
 
+/* ----- Grid Cerita (Istória) ----- */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.about-text h2 {
+    font-size: 2.2rem;
+    color: var(--brand-dark);
+    margin-bottom: 1rem;
+}
+
+.about-text p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s;
+}
+
+.about-image img:hover {
+    transform: scale(1.02);
+}
+
+/* ----- Mission, Vision, Values ----- */
+.mv-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.mv-card {
+    background: #f8f9fc;
+    padding: 2rem 1.5rem;
+    border-radius: 16px;
+    text-align: center;
+    transition: all 0.3s;
+    border-bottom: 4px solid transparent;
+}
+
+.mv-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+    border-bottom-color: var(--brand-gold);
+}
+
+.mv-card i {
+    font-size: 2.8rem;
+    color: var(--brand-gold);
+    margin-bottom: 1rem;
+}
+
+.mv-card h3 {
+    font-size: 1.4rem;
+    color: var(--brand-dark);
+    margin-bottom: 0.6rem;
+}
+
+.mv-card p {
+    color: #555;
+    line-height: 1.6;
+}
+
+/* ----- Team Section ----- */
+.about-team {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.about-team h2 {
+    font-size: 2.2rem;
+    color: var(--brand-dark);
+}
+
+.team-sub {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+/* ===== STRUKTUR ORGANISASI FINAL ===== */
+.org-chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.org-level {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 100%;
+    position: relative;
+}
+
+.org-node {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.org-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 1rem 1rem;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-bottom 0.3s ease;
+    border-bottom: 4px solid var(--brand-gold);
+    width: 100%;
+    max-width: 210px;
+    position: relative;
+    z-index: 2;
+}
+
+.org-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px var(--shadow-gold);
+}
+
+.org-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--brand-gold);
+    margin-bottom: 0.5rem;
+}
+
+.org-card h4 {
+    font-size: 0.95rem;
+    color: var(--brand-dark);
+    margin-bottom: 0.2rem;
+    line-height: 1.2;
+}
+
+.org-card span {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--brand-gold);
+    font-weight: 600;
+}
+
+.org-card small {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--brand-teal);
+    margin-top: 0.1rem;
+}
+
+.org-card-committee {
+    border-bottom-color: var(--brand-gold);
+    text-align: left;
+    max-width: 260px;
+}
+
+.org-card-committee:hover {
+    box-shadow: 0 12px 28px var(--shadow-gold);
+}
+
+.committee-title {
+    font-size: 1rem; 
+    margin-bottom: 0.8rem; 
+    text-align: center;
+    color: var(--brand-dark);
+}
+
+.committee-list {
+    list-style: none; 
+    padding: 0; 
+    font-size: 0.85rem; 
+    color: #333;
+}
+
+.committee-list li {
+    padding: 0.3rem 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.committee-list li:last-child {
+    border-bottom: none;
+}
+
+.committee-list li small {
+    color: var(--brand-gold);
+    font-weight: 600;
+}
+
+/* ===== GARIS PENGHUBUNG ===== */
+.org-line-down {
+    width: 2px;
+    height: 30px;
+    background: var(--brand-gold);
+    margin: 0 auto;
+}
+
+.org-line-committee {
+    width: 2px;
+    height: 25px;
+    background: var(--brand-gold);
+    margin: 0 auto;
+}
+
+.org-level-two {
+    padding-top: 1rem;
+}
+
+.org-level-two::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 25%;
+    width: 50%;
+    height: 2px;
+    background: var(--brand-gold);
+    z-index: 1;
+}
+
+.org-level-two .org-node::before {
+    content: '';
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    width: 2px;
+    height: 16px;
+    background: var(--brand-gold);
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.org-branches {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+.org-branch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+.org-branch::before {
+    content: '';
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    width: 2px;
+    height: 24px;
+    background: var(--brand-gold);
+    z-index: 1;
+}
+
+.org-sublevel {
+    padding-top: 1rem;
+}
+
+.org-sublevel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 25%;
+    width: 50%;
+    height: 2px;
+    background: var(--brand-gold);
+    z-index: 1;
+}
+
+.org-sublevel .org-node::before {
+    content: '';
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    width: 2px;
+    height: 16px;
+    background: var(--brand-gold);
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+/* ===== RESPONSIVE ORG CHART ===== */
+@media (max-width: 768px) {
+    .org-card {
+        max-width: 160px;
+        padding: 1rem 0.5rem;
+    }
+    .org-card img {
+        width: 60px;
+        height: 60px;
+    }
+    .org-card h4 {
+        font-size: 0.85rem;
+    }
+    .org-card-committee {
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 580px) {
+    .org-level, .org-branches, .org-branch, .org-sublevel {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 0;
+        gap: 1.5rem;
+    }
+    .org-card, .org-card-committee {
+        max-width: 250px;
+    }
+    .org-level-two::before,
+    .org-sublevel::before {
+        display: none;
+    }
+    .org-level-two .org-node::before,
+    .org-sublevel .org-node::before,
+    .org-branch::before {
+        height: 24px;
+        top: -24px;
+    }
+    .org-line-down, .org-line-committee {
+        height: 24px;
+    }
+}
