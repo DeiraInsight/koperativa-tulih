@@ -1,1 +1,173 @@
+/* ========================================
+   STYLE KHUSUS HALAMAN ATENDIMENTU
+   ======================================== */
 
+.services-page {
+    background-color: #fcfcfc; /* Memberi warna dasar yang sangat lembut agar kartu menonjol */
+}
+
+/* --- Judul Bagian --- */
+.section-title {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.section-title h2 {
+    color: var(--brand-dark);
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.section-title p {
+    color: var(--brand-teal);
+    font-size: 1.1rem;
+}
+
+/* --- Grid Layanan --- */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Membagi 3 kolom sama besar */
+    gap: 2.5rem;
+    margin-bottom: 4rem;
+}
+
+/* --- Desain Kartu Layanan --- */
+.service-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border-top: 5px solid var(--brand-gold);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px var(--shadow-gold);
+}
+
+/* Ikon di dalam kartu */
+.service-icon {
+    width: 75px;
+    height: 75px;
+    background: rgba(204, 160, 13, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: background 0.3s ease;
+}
+
+.service-icon i {
+    font-size: 2.2rem;
+    color: var(--brand-gold);
+    transition: color 0.3s ease;
+}
+
+/* Animasi perubahan warna ikon saat kartu disentuh */
+.service-card:hover .service-icon {
+    background: var(--brand-gold);
+}
+
+.service-card:hover .service-icon i {
+    color: var(--white);
+}
+
+.service-card h3 {
+    font-size: 1.4rem;
+    color: var(--brand-dark);
+    margin-bottom: 1rem;
+}
+
+.service-card p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1; /* Mendorong list ke bawah agar tinggi kartu selalu sejajar */
+}
+
+/* --- List Fitur di Dalam Kartu --- */
+.service-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid #eee;
+    padding-top: 1.5rem;
+}
+
+.service-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0.8rem;
+    color: var(--brand-teal);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.service-list li i {
+    color: var(--brand-gold);
+}
+
+/* --- Bagian Ajakan (Call to Action) di Bawah --- */
+.services-cta {
+    background: var(--primary-gradient);
+    padding: 4rem 2rem;
+    text-align: center;
+    color: var(--white);
+    margin-top: 2rem;
+}
+
+.cta-content h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.cta-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-primary {
+    display: inline-block;
+    background: var(--brand-gold);
+    color: var(--white);
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.btn-primary:hover {
+    background: #e6b810;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px var(--shadow-gold);
+    color: var(--white);
+}
+
+/* --- RESPONSIVE UNTUK TABLET & HP --- */
+@media (max-width: 992px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr); /* Berubah jadi 2 kolom di tablet */
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title h2 {
+        font-size: 2rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr; /* Berubah jadi 1 kolom menyusun ke bawah di HP */
+    }
+}
