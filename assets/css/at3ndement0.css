@@ -170,4 +170,113 @@
     .services-grid {
         grid-template-columns: 1fr; /* Berubah jadi 1 kolom menyusun ke bawah di HP */
     }
+
+}
+/* ===== TESTIMONI SECTION (SLIDER) ===== */
+.testimonial-section {
+    padding: 3rem 0 5rem;
+    background-color: #fcfcfc;
+}
+
+.testimonial-slider-container {
+    position: relative;
+    max-width: 850px; /* Ukuran maksimal slider di tengah layar */
+    margin: 0 auto;
+    overflow: hidden; /* Menyembunyikan kartu yang sedang bergeser ke luar */
+    padding: 1rem 0.5rem;
+}
+
+.testimonial-track {
+    display: flex;
+    transition: transform 0.8s ease-in-out; /* Animasi geser yang sangat halus */
+}
+
+.testimonial-card {
+    min-width: 100%; /* Setiap kartu akan memakan lebar 100% dari container */
+    box-sizing: border-box;
+    background: var(--white);
+    padding: 3rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    border-left: 6px solid var(--brand-gold);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.quote-icon {
+    font-size: 3rem;
+    color: var(--brand-gold);
+    opacity: 0.2;
+    margin-bottom: 1rem;
+}
+
+.testi-content p {
+    font-size: 1.15rem;
+    font-style: italic;
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.testi-author {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.testi-author img {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--brand-teal);
+}
+
+.author-info h4 {
+    color: var(--brand-dark);
+    font-size: 1.15rem;
+    margin-bottom: 0.2rem;
+}
+
+.author-info span {
+    color: var(--brand-teal);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Navigasi Titik Bawah (Dots) */
+.testi-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-top: 2rem;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #d1d1d1;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.dot:hover {
+    transform: scale(1.2);
+}
+
+.dot.active {
+    background: var(--brand-gold);
+    transform: scale(1.2);
+}
+
+/* Responsive Testimoni */
+@media (max-width: 768px) {
+    .testimonial-card {
+        padding: 2rem 1.5rem;
+    }
+    .testi-content p {
+        font-size: 1rem;
+    }
 }
