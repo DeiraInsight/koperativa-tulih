@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  web-tulih:
+    image: docker.io/library/nginx:alpine
+    container_name: tulih_website
+    ports:
+      - "8080:80" # Akses website melalui http://localhost:8080
+    volumes:
+      # Mounting folder project lokal ke folder publik Nginx (Read-Only)
+      - ./:/usr/share/nginx/html/:ro,z
+    restart: unless-stopped
