@@ -431,3 +431,44 @@
     .kc-grid { grid-template-columns: 1fr; gap: 1rem; }
     .koperasi-calc { padding: 1.5rem 1rem; margin: 2rem auto; }
 }
+
+/* ==========================================
+   PERBAIKAN JARAK ANTAR SECTION
+   ========================================== */
+
+/* 1. Kurangi jarak bawah services grid */
+.services-grid {
+    margin-bottom: 0.5rem !important; /* sebelumnya 4rem */
+}
+
+/* 2. Kurangi jarak atas & bawah kalkulator */
+.koperasi-calc {
+    margin: 0.5rem  auto !important; /* sebelumnya 4rem auto */
+    padding: 2rem  1.5rem !important; /* sedikit kurangi padding dalam */
+}
+
+/* 3. Kurangi padding testimoni */
+.testimonial-section {
+    padding: 0.5rem  0 3rem !important; /* sebelumnya 3rem 0 5rem */
+}
+
+/* 4. Kurangi padding & margin CTA */
+.services-cta {
+    padding: 0.5rem  0.5rem  !important; /* sebelumnya 4rem 2rem */
+    margin-top: 0.5rem  !important; /* sebelumnya 2rem */
+}
+
+/* 5. (Opsional) Kurangi jarak antar kartu di grid */
+.services-grid {
+    gap: 0.5rem  !important; /* sebelumnya 2.5rem */
+}
+
+/* 6. Kurangi jarak section title ke konten */
+.section-title {
+    margin-bottom: 0.5rem  !important; /* sebelumnya 3.5rem */
+}
+
+/* 7. Kurangi padding hero jika terlalu besar */
+.about-hero {
+    padding: 0.5rem  1rem !important; /* sesuaikan dengan hero bawaan */
+}
