@@ -280,3 +280,154 @@
         font-size: 1rem;
     }
 }
+/* ==========================================
+   KALKULATOR SIMULASI KREDITU
+   ========================================== */
+.koperasi-calc * { box-sizing: border-box; }
+
+.koperasi-calc {
+    max-width: 1900px;
+    margin: 4rem auto; /* Jarak atas bawah dari elemen lain */
+    padding: 2.5rem 2rem;
+    background: var(--white);
+    border: 1px solid #eaeaea;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border-top: 6px solid var(--brand-gold);
+}
+
+.kc-header h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.8rem;
+    color: var(--brand-dark);
+}
+
+.kc-header p {
+    margin: 0 0 2rem 0;
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.kc-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+    align-items: end;
+    margin-bottom: 2rem;
+}
+
+.koperasi-calc label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--brand-dark);
+    font-size: 0.95rem;
+}
+
+.koperasi-calc input,
+.koperasi-calc select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #333;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.koperasi-calc input:focus,
+.koperasi-calc select:focus {
+    outline: none;
+    border-color: var(--brand-gold);
+    box-shadow: 0 0 0 3px rgba(204, 160, 13, 0.15);
+}
+
+.koperasi-calc input:disabled {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+}
+
+.kc-actions {
+    display: flex;
+    justify-content: center;
+}
+
+/* Menggunakan gaya tombol utama TULIH */
+.kc-btn {
+    padding: 12px 30px;
+    border-radius: 50px;
+    border: none;
+    background: var(--brand-gold);
+    color: var(--white);
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: transform 0.3s, background 0.3s;
+    box-shadow: 0 4px 15px rgba(204, 160, 13, 0.3);
+}
+
+.kc-btn:hover {
+    background: #e6b810;
+    transform: translateY(-3px);
+}
+
+/* Output Kalkulator */
+.kc-msg { margin-top: 1rem; text-align: center; }
+.kc-out { margin-top: 2rem; }
+
+.kc-table-wrap {
+    overflow-x: auto;
+    border: 1px solid #eaeaea;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+}
+
+.kc-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+}
+
+.kc-table th,
+.kc-table td {
+    border-bottom: 1px solid #eaeaea;
+    padding: 12px 15px;
+    color: #444;
+}
+
+.kc-table th {
+    background: var(--brand-teal);
+    color: var(--white);
+    font-weight: 600;
+}
+
+.kc-table .subhead th {
+    background: #e9ecec;
+    color: var(--brand-dark);
+    padding: 8px 15px;
+    font-size: 0.9rem;
+}
+
+.kc-right { text-align: center; }
+.kc-center { text-align: center; }
+
+.kc-summary {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background: #f8f9fc;
+    border-left: 4px solid var(--brand-gold);
+    border-radius: 8px;
+    line-height: 1.8;
+    color: #444;
+
+}
+
+/* Responsive Kalkulator */
+@media (max-width: 900px){
+    .kc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 520px){
+    .kc-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .koperasi-calc { padding: 1.5rem 1rem; margin: 2rem auto; }
+}
