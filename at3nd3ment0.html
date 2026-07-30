@@ -81,7 +81,155 @@
                 </div>
             </div>
         </section>
+        <section class="container">
+            <div class="koperasi-calc" id="kc_box">
+                <div class="kc-header">
+                    <h3>Simulasaun Kréditu TULIH</h3>
+                    <p>
+                        <b>Nota:</b> Ida-ne'e hanesan <b>simulasaun</b> ida atu ajuda membru/vizitante sira komprende kalkulasaun husi TULIH. Informasaun klaru bele email ba: <b>koperativa.tulih@gmail.com</b>
+                    </p>
+                </div>
 
+                <div class="kc-grid">
+                    <div>
+                        <label for="kc_p">Kréditu (K) - $</label>
+                        <input id="kc_p" type="number" min="1" step="0.01" value="4000">
+                    </div>
+
+                    <div>
+                        <label for="kc_n">Tenor / Fulan (T)</label>
+                        <input id="kc_n" type="number" min="1" step="1" value="10">
+                    </div>
+
+                    <div>
+                        <label for="kc_r">Juru Fiksu (%)</label>
+                        <input id="kc_r" type="number" min="0" step="0.01" value="1.5" disabled>
+                    </div>
+
+                    <div>
+                        <label for="kc_round">Format Desimál</label>
+                        <select id="kc_round">
+                            <option value="2">2 Desimál ($0.00)</option>
+                            <option value="0">La uja desimál ($0)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="kc-actions">
+                    <button id="kc_btn" type="button" class="kc-btn">Prosesa Kalkulasaun</button>
+                </div>
+
+                <div id="kc_msg" class="kc-msg"></div>
+                <div id="kc_out" class="kc-out"></div>
+            </div>
+        </section>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const $ = (id) => document.getElementById(id);
+                // Pastikan berada di halaman yang memiliki kalkulator
+                if (!$("kc_btn")) return; 
+
+                function fmt(x, d) {
+                    const n = Number(x);
+                    if (!isFinite(n)) return "-";
+                    // Menambahkan simbol $ untuk kejelasan mata uang
+                    return "$" + n.toLocaleString(undefined, {minimumFractionDigits:d, maximumFractionDigits:d});
+                }
+
+                function build() {
+                    const P = parseFloat($("kc_p").value);
+                    const N = parseInt($("kc_n").value, 10);
+                    const rPct = parseFloat($("kc_r").value);
+                    const d = parseInt($("kc_round").value, 10);
+
+                    if (!P || P <= 0 || !N || N <= 0 || isNaN(rPct) || rPct < 0){
+                        $("kc_msg").innerHTML = "<p style='color:#d9534f; font-weight:bold;'>Input ne'ebé la válidu. Favór hatama númeru ho loos.</p>";
+                        $("kc_out").innerHTML = "";
+                        return;
+                    }
+                    $("kc_msg").innerHTML = "";
+
+                    const r = rPct / 100;
+
+                    // FLAT FIX (Rumus: B = P/N, C = P*r, D = B+C)
+                    const B = P / N;
+                    const C = P * r;
+                    const D = B + C;
+
+                    let totalB = 0, totalC = 0, totalD = 0;
+
+                    let html = `
+                        <div class="kc-table-wrap">
+                            <table class="kc-table">
+                                <thead>
+                                    <tr>
+                                        <th class="kc-center">Fulan</th>
+                                        <th>A (Balansu Kréditu)</th>
+                                        <th>B (Selu Inan)</th>
+                                        <th>C (Funan ${rPct}% fiksu)</th>
+                                        <th>D (Totál Depózitu)</th>
+                                    </tr>
+                                    <tr class="subhead">
+                                        <th class="kc-center"> </th>
+                                        <th class="kc-center">A</th>
+                                        <th class="kc-center">B = K/T</th>
+                                        <th class="kc-center">C = K×${rPct}%</th>
+                                        <th class="kc-center">D = B + C</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                    `;
+
+                    for (let i = 1; i <= N; i++){
+                        const A = P - (i - 1) * B;
+                        totalB += B;
+                        totalC += C;
+                        totalD += D;
+
+                        html += `
+                            <tr>
+                                <td class="kc-center">${i}</td>
+                                <td class="kc-right">${fmt(A, d)}</td>
+                                <td class="kc-right">${fmt(B, d)}</td>
+                                <td class="kc-right">${fmt(C, d)}</td>
+                                <td class="kc-right" style="font-weight:bold; color:var(--brand-teal);">${fmt(D, d)}</td>
+                            </tr>
+                        `;
+                    }
+
+                    html += `
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th colspan="2" class="kc-right" style="background:#f0f0f0; color:#333;">TOTÁL</th>
+                                        <th class="kc-right" style="background:#f0f0f0; color:#333;">${fmt(totalB, d)}</th>
+                                        <th class="kc-right" style="background:#f0f0f0; color:#333;">${fmt(totalC, d)}</th>
+                                        <th class="kc-right" style="background:#f0f0f0; color:#333;">${fmt(totalD, d)}</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+
+                        <div class="kc-summary">
+                            <h4 style="margin-top:0; color:var(--brand-dark);">Rezumu Kréditu:</h4>
+                            Selu Inan kada fulan (B) = <b>${fmt(B, d)}</b><br>
+                            Selu Funan kada fulan (C) = <b>${fmt(C, d)}</b><br>
+                            Pagamentu Totál kada fulan (D) = <b style="color:var(--brand-gold); font-size:1.1rem;">${fmt(D, d)}</b><br><br>
+                            Totál Funan Selu = <b>${fmt(totalC, d)}</b><br>
+                            Totál Pagamentu (Inan + Funan) = <b>${fmt(totalD, d)}</b>
+                        </div>
+                    `;
+
+                    $("kc_out").innerHTML = html;
+                }
+
+                $("kc_btn").addEventListener("click", build);
+                
+                // Menjalankan kalkulasi otomatis saat halaman dimuat
+                build();
+            });
+        </script>
         <section class="testimonial-section container">
             <div class="section-title">
                 <h2>Liafuan husi Membru Sira</h2>
