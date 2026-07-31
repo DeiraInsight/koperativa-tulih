@@ -224,94 +224,114 @@
             <div class="form-actions no-print">
                 <button type="button" id="prevBtn" class="btn-gold" onclick="nextPrev(-1)">Fila Fali</button>
                 <button type="button" id="nextBtn" class="btn-gold" onclick="nextPrev(1)">Tuir Mai</button>
-                <button type="button" id="printBtn" class="btn-gold" onclick="generatePDF()" style="display:none;"><i class="fas fa-file-pdf"></i> Imprime / Save PDF</button>
+                <button type="button" id="printBtn" class="btn-gold" onclick="generatePDF()" style="display:none;"><i class="fas fa-download"></i> Download PDF</button>
             </div>
         </form>
     </main>
 
     <script>
-    let currentStep = 0;
-    showStep(currentStep);
+    <!-- ================= JAVASCRIPT LOGIC MULTI-STEP ================= -->
+        let currentStep = 0;
 
-    // ==========================================
-    // 1. SET TANGGAL OTOMATIS HARI INI
-    // ==========================================
-    document.addEventListener('DOMContentLoaded', function() {
-        const dateInput = document.querySelector('input[name="data_asinatura"]');
-        if (dateInput) {
-            const today = new Date();
-            const year = today.getFullYear();
-            // padStart digunakan agar bulan/tanggal di bawah 10 ditambahkan angka 0 di depannya (misal: 08)
-            const month = String(today.getMonth() + 1).padStart(2, '0');
-            const day = String(today.getDate()).padStart(2, '0');
-            
-            // Format yang diterima oleh input type="date" adalah YYYY-MM-DD
-            dateInput.value = `${year}-${month}-${day}`;
-        }
-    });
+        // ==========================================
+        // 1. SAAT HALAMAN DIBUKA ATAU DI-REFRESH
+        // ==========================================
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById("regForm").reset(); // Bersihkan sisa data lama di browser
+            setTanggalOtomatis(); // Panggil fungsi tanggal otomatis
+            showStep(currentStep); // Tampilkan halaman pertama
+        });
 
-    // ==========================================
-    // 2. LOGIKA MULTI-STEP FORM
-    // ==========================================
-    function showStep(n) {
-        let steps = document.getElementsByClassName("form-step");
-        let indicators = document.getElementsByClassName("step-indicator");
-        
-        // Sembunyikan semua step, lalu tampilkan yang aktif
-        for (let i = 0; i < steps.length; i++) {
-            steps[i].classList.remove("active");
-            indicators[i].classList.remove("active");
-        }
-        steps[n].classList.add("active");
-        indicators[n].classList.add("active");
-
-        // Atur tombol
-        document.getElementById("prevBtn").style.display = (n == 0) ? "none" : "inline-block";
-        
-        if (n == (steps.length - 1)) {
-            document.getElementById("nextBtn").style.display = "none";
-            document.getElementById("printBtn").style.display = "inline-block";
-        } else {
-            document.getElementById("nextBtn").style.display = "inline-block";
-            document.getElementById("printBtn").style.display = "none";
-        }
-    }
-
-    function nextPrev(n) {
-        let steps = document.getElementsByClassName("form-step");
-        
-        // Validasi Input jika user klik "Next"
-        if (n == 1 && !validateForm()) return false;
-        
-        currentStep = currentStep + n;
-        showStep(currentStep);
-        
-        // Scroll otomatis ke atas form
-        window.scrollTo({ top: document.querySelector('.reg-container').offsetTop - 50, behavior: 'smooth' });
-    }
-
-    function validateForm() {
-        let steps = document.getElementsByClassName("form-step");
-        let inputs = steps[currentStep].querySelectorAll("input[required], select[required], textarea[required]");
-        let valid = true;
-        
-        for (let i = 0; i < inputs.length; i++) {
-            if (!inputs[i].checkValidity()) {
-                inputs[i].reportValidity(); // Memunculkan pesan error bawaan browser
-                valid = false;
-                break;
+        // Fungsi khusus untuk memasukkan tanggal hari ini
+        function setTanggalOtomatis() {
+            const dateInput = document.querySelector('input[name="data_asinatura"]');
+            if (dateInput) {
+                const today = new Date();
+                const year = today.getFullYear();
+                const month = String(today.getMonth() + 1).padStart(2, '0');
+                const day = String(today.getDate()).padStart(2, '0');
+                dateInput.value = `${year}-${month}-${day}`;
             }
         }
-        return valid;
-    }
 
-    function generatePDF() {
-        // Validasi sesi terakhir sebelum print
-        if (!validateForm()) return false;
-        
-        // Panggil dialog Print bawaan browser (Bisa simpan sbg PDF)
-        window.print();
-    }
+        // ==========================================
+        // 2. LOGIKA PINDAH HALAMAN (MULTI-STEP)
+        // ==========================================
+        function showStep(n) {
+            let steps = document.getElementsByClassName("form-step");
+            let indicators = document.getElementsByClassName("step-indicator");
+            
+            // Sembunyikan semua step, lalu tampilkan yang aktif
+            for (let i = 0; i < steps.length; i++) {
+                steps[i].classList.remove("active");
+                indicators[i].classList.remove("active");
+            }
+            steps[n].classList.add("active");
+            indicators[n].classList.add("active");
+
+            // Atur tampilan tombol Fila Fali / Tuir Mai / Print
+            document.getElementById("prevBtn").style.display = (n == 0) ? "none" : "inline-block";
+            
+            if (n == (steps.length - 1)) {
+                document.getElementById("nextBtn").style.display = "none";
+                document.getElementById("printBtn").style.display = "inline-block";
+            } else {
+                document.getElementById("nextBtn").style.display = "inline-block";
+                document.getElementById("printBtn").style.display = "none";
+            }
+        }
+
+        function nextPrev(n) {
+            let steps = document.getElementsByClassName("form-step");
+            
+            // Validasi Input jika user klik "Next"
+            if (n == 1 && !validateForm()) return false;
+            
+            currentStep = currentStep + n;
+            showStep(currentStep);
+            
+            // Scroll otomatis ke atas form
+            window.scrollTo({ top: document.querySelector('.reg-container').offsetTop - 50, behavior: 'smooth' });
+        }
+
+        function validateForm() {
+            let steps = document.getElementsByClassName("form-step");
+            let inputs = steps[currentStep].querySelectorAll("input[required], select[required], textarea[required]");
+            let valid = true;
+            
+            for (let i = 0; i < inputs.length; i++) {
+                if (!inputs[i].checkValidity()) {
+                    inputs[i].reportValidity(); // Memunculkan peringatan wajib isi
+                    valid = false;
+                    break;
+                }
+            }
+            return valid;
+        }
+
+       function generatePDF() {
+            // Validasi sesi terakhir sebelum print
+            if (!validateForm()) return false;
+            
+            // Memunculkan pesan petunjuk pintar kepada pendaftar
+            alert("Avisu: Atu halo download ba PDF, favor hili 'Save as PDF' (Simpan sebagai PDF) iha janela tuir mai!");
+            
+            // Panggil mesin PDF bawaan browser yang sudah kita setting layout A4-nya
+            window.print();
+        }
+
+        // ==========================================
+        // 3. MEMBERSIHKAN FORM SETELAH SELESAI PRINT
+        // ==========================================
+        window.addEventListener('afterprint', function() {
+            document.getElementById("regForm").reset(); // Hapus seluruh isi ketikan
+            currentStep = 0; // Kembalikan sistem ke halaman (Seksaun) 1
+            showStep(currentStep); // Tampilkan Seksaun 1 ke layar
+            setTanggalOtomatis(); // Isi kembali tanggal untuk pendaftar baru
+            
+            // Gulir layar kembali ke paling atas
+            window.scrollTo({ top: document.querySelector('.reg-container').offsetTop - 50, behavior: 'smooth' });
+        });
 </script>
     <!-- TEMPAT UNTUK FOOTER -->
     <div id="footer-placeholder"></div>
