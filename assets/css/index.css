@@ -264,5 +264,5 @@
 
 /* (Opsional) Merapatkan bagian dalam kotak gradien CTA agar tidak terlalu gemuk */
 .cta-box {
-    padding: 0.5rem 1.5rem !important; 
+    padding: 2rem 1.5rem !important; 
 }
