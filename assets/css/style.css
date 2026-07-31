@@ -285,6 +285,7 @@
     opacity: 0.7;
 }
 
+
 /* ===== RESPONSIVE FOOTER ===== */
 @media (max-width: 900px) {
     .footer-container {
@@ -316,4 +317,31 @@
     #main-footer {
         padding: 2rem 1rem 1.5rem;
     }
+}
+/* ===== CTA BOX BAWAH ===== */
+.home-cta {
+    padding: 4rem 0;
+}
+
+.cta-box {
+    background: var(--primary-gradient);
+    border-radius: 20px;
+    padding: 4rem 2rem;
+    text-align: center;
+    color: var(--white);
+    box-shadow: 0 15px 35px rgba(62, 76, 77, 0.2);
+}
+
+.cta-box h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.cta-box p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
