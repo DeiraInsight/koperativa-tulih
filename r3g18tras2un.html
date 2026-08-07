@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="tet">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formuláriu Registrasaun - Koperativa TULIH</title>
+    <meta name="description" content="Formuláriu aplikasaun sai membru foun Kooperativa Tula Liman Hamutuk (TULIH).">
+    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/ab0ut.css" />
+    <link rel="stylesheet" href="assets/css/at3ndement0.css" />
+    <link rel="stylesheet" href="assets/css/index.css" />
+    <link rel="stylesheet" href="assets/css/k0nt2kt0.css" />
+    <link rel="stylesheet" href="assets/css/kr1t3r12.css" />
+    <link rel="stylesheet" href="assets/css/r3g18tras2un.css" />
+</head>
+<body>
+    <div id="header-placeholder" class="no-print"></div>
+     <section class="about-hero no-print">
+            <div class="about-hero-content">
+                <h1>Registrasaun Membru Foun</h1>
+                <p>Prienxe formuláriu tuir mai atu sai membru Kooperativa TULIH</p>
+            </div>
+    </section>
+    <div class="print-header">
+        <!-- Tambahan Logo di Kanan -->
+        <img src="assets/img/log0.webp" alt="Logo TULIH" class="header-logo">
+        <div class="header-text">
+            <h2>Kooperativa Tula Liman Hamutuk – TULIH</h2>
+            <p>Rua dos Martires da Patria, Comoro – Dili, Timor Leste<br>
+            (Kompleks Sínodo IPTL Besik Ponte CPLP Comoro). 🕿 +670-7529 4737.</p>
+        </div>
+        <hr>
+        <h3>Formuláriu Aplikasaun Membru</h3>
+    </div>
+    <main class="reg-container">
+        <div class="progress-bar no-print">
+            <div class="step-indicator active">1</div>
+            <div class="step-indicator">2</div>
+            <div class="step-indicator">3</div>
+            <div class="step-indicator">4</div>
+            <div class="step-indicator">5</div>
+        </div>
+        <form id="regForm">
+            <div class="form-step active">
+                <h3>Seksaun 1: Informasaun Pesoál</h3>
+                <div class="input-group">
+                    <label>Naran Kompletu *</label>
+                    <input type="text" name="naran" required placeholder="Preenxe naran kompletu">
+                </div>
+                <div class="grid-2">
+                    <div class="input-group">
+                        <label>Data Moris *</label>
+                        <input type="date" name="data_moris" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Jéneru *</label>
+                        <select name="jeneru" required>
+                            <option value="">Hili Jéneru...</option>
+                            <option value="Mane">Mane</option>
+                            <option value="Feto">Feto</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="grid-2">
+                    <div class="input-group">
+                        <label>Nasionalidade *</label>
+                        <input type="text" name="nasionalidade" required placeholder="Ezemplu: Timorense">
+                    </div>
+                    <div class="input-group">
+                        <label>Estadu Sivíl *</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="estadu_sivil" value="Klosan" required> Klosan</label>
+                            <label><input type="radio" name="estadu_sivil" value="Kaben-nain"> Kaben-nain</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-2">
+                    <div class="input-group">
+                        <label>Tipu Identifikasaun *</label>
+                        <select name="tipu_id" required>
+                            <option value="">Hili Tipu ID...</option>
+                            <option value="BI">BI</option>
+                            <option value="Kartaun Eleitoral">Kartaun Eleitoral</option>
+                            <option value="Pasaporte">Pasaporte</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Númeru ID *</label>
+                        <input type="text" name="numeru_id" required placeholder="Numeru husi ID ne'ebé hili">
+                    </div>
+                </div>
+                <div class="grid-2">
+                    <div class="input-group">
+                        <label>Númeru Telemovel *</label>
+                        <input type="tel" name="telemovel" required placeholder="+670...">
+                    </div>
+                    <div class="input-group">
+                        <label>Enderesu Email</label>
+                        <input type="email" name="email" placeholder="ezemplu@email.com">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Hela Fatin *</label>
+                    <textarea name="hela_fatin" rows="2" required placeholder="Enderesu kompletu agora dadaun"></textarea>
+                </div>
+            </div>
+            <div class="form-step">
+                <h3>Seksaun 2: Informasaun Kona-ba Empregu</h3>
+                <div class="input-group">
+                    <label>Okupasaun / Servisu *</label>
+                    <input type="text" name="okupasaun" required placeholder="Profisaun ka servisu agora">
+                </div>
+                <div class="input-group">
+                    <label>Empregadór nia Naran (Servisu Fatin) *</label>
+                    <input type="text" name="empregador" required placeholder="Naran instituisaun ka kompañia">
+                </div>
+                <div class="input-group">
+                    <label>Enderesu ba Servisu Fatin *</label>
+                    <textarea name="enderesu_servisu" rows="2" required placeholder="Fatin servisu nian"></textarea>
+                </div>
+                <div class="input-group">
+                    <label>Rendimentu Mensál (Opsional)</label>
+                    <div class="currency-wrapper">
+                        <span class="currency-symbol">$</span>
+                        <!-- Perbaikan 2: Ubah jadi type="number" dan hapus simbol $ dari placeholder -->
+                        <input type="text" name="rendimentu" placeholder="500.00" step="0.01">
+                    </div>
+                </div>
+            </div>
+            <div class="form-step">
+                <h3>Seksaun 3: Detallu Kooperativa</h3>
+                <div class="input-group">
+                    <label>Tipu ba Membru *</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="tipu_membru" value="Adultu" required> Adultu</label>
+                        <label><input type="radio" name="tipu_membru" value="Labarik"> Labarik</label>
+                        <label><input type="radio" name="tipu_membru" value="Negosiu"> Négosiu</label>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Razaun Hakarak Tama Kooperativa TULIH *</label>
+                    <textarea name="razaun" rows="2" maxlength="104" required placeholder="Maks. 104 karakter. Esplika badak ita nia objetivu..."></textarea>
+                </div>
+                <div class="grid-2">
+                    <div class="input-group">
+                        <label>Planu Poupansa Preferidu</label>
+                         <div class="currency-wrapper">
+                            <span class="currency-symbol">$</span>
+                            <input type="text" name="planu_poupansa" placeholder="(Karik aplikavel)" step="0.01">
+                         </div>
+                    </div>
+                    <div class="input-group">
+                        <label>Montante Depózitu Inisiál *</label>
+                        <div class="currency-wrapper">
+                            <span class="currency-symbol">$</span>
+                            <input type="text" name="depozitu_inisial" required placeholder="150.00" step="0.01">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-step">
+                <h3>Seksaun 4: Kontaktu ba Emerjénsia (Edeiru)</h3>
+                <div class="input-group">
+                    <label>Naran Kompletu *</label>
+                    <input type="text" name="naran_emerjensia" required placeholder="Naran husi familia ka ema besik">
+                </div>
+                <div class="grid-2">
+                    <div class="input-group">
+                        <label>Relasaun *</label>
+                        <input type="text" name="relasaun" required placeholder="Ezemplu: Kaben, Inan-Aman, Oan">
+                    </div>
+                    <div class="input-group">
+                        <label>Númeru Telemovel *</label>
+                        <input type="tel" name="tlf_emerjensia" required placeholder="+670...">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Hela Fatin *</label>
+                    <textarea name="hela_emerjensia" rows="2" required placeholder="Enderesu kompletu nia"></textarea>
+                </div>
+            </div>
+            <div class="form-step">
+                <h3>Seksaun 5: Deklarasaun</h3>
+                <div class="declaration-box">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="deklarasaun_check" required>
+                        <span class="checkmark"></span>
+                        Ho ida-ne'e ha'u aplika sai nudar membru iha Kooperativa Tula Liman Hamutuk - TULIH. Ha'u konkorda atu kumpre ninia regra no regulamentu sira no komprende katak ha'u nia adezaun nudar membru sujeita ba aprovasaun.
+                    </label>
+                </div>
+            </div>
+            <div class="signature-section">
+                <div class="input-group">
+                    <label>Data</label>
+                    <input type="date" name="data_asinatura" style="pointer-events: none;">
+                </div>
+                <div class="input-group">
+                    <label>Asinatura husi Aplikante</label>
+                    <div class="signature-box">
+                        <span class="print-only-text">(Asina iha ne'e)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions no-print">
+                <button type="button" id="prevBtn" class="btn-gold" onclick="nextPrev(-1)">Fila Fali</button>
+                <button type="button" id="nextBtn" class="btn-gold" onclick="nextPrev(1)">Tuir Mai</button>
+                <button type="button" id="printBtn" class="btn-gold" onclick="generatePDF()" style="display:none;"><i class="fas fa-download"></i> Download PDF</button>
+            </div>
+        </form>
+    </main>
+
+    <script>
+    <!-- ================= JAVASCRIPT LOGIC MULTI-STEP ================= -->
+        let currentStep = 0;
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById("regForm").reset(); 
+            setTanggalOtomatis(); 
+            showStep(currentStep); 
+        });
+        function setTanggalOtomatis() {
+            const dateInput = document.querySelector('input[name="data_asinatura"]');
+            if (dateInput) {
+                const today = new Date();
+                const year = today.getFullYear();
+                const month = String(today.getMonth() + 1).padStart(2, '0');
+                const day = String(today.getDate()).padStart(2, '0');
+                dateInput.value = `${year}-${month}-${day}`;
+            }
+        }
+        function showStep(n) {
+            let steps = document.getElementsByClassName("form-step");
+            let indicators = document.getElementsByClassName("step-indicator");
+            for (let i = 0; i < steps.length; i++) {
+                steps[i].classList.remove("active");
+                indicators[i].classList.remove("active");
+            }
+            steps[n].classList.add("active");
+            indicators[n].classList.add("active");
+            document.getElementById("prevBtn").style.display = (n == 0) ? "none" : "inline-block";
+            
+            if (n == (steps.length - 1)) {
+                document.getElementById("nextBtn").style.display = "none";
+                document.getElementById("printBtn").style.display = "inline-block";
+            } else {
+                document.getElementById("nextBtn").style.display = "inline-block";
+                document.getElementById("printBtn").style.display = "none";
+            }
+        }
+
+        function nextPrev(n) {
+            let steps = document.getElementsByClassName("form-step");
+            
+            if (n == 1 && !validateForm()) return false;
+            
+            currentStep = currentStep + n;
+            showStep(currentStep);
+            
+            window.scrollTo({ top: document.querySelector('.reg-container').offsetTop - 50, behavior: 'smooth' });
+        }
+
+        function validateForm() {
+            let steps = document.getElementsByClassName("form-step");
+            let inputs = steps[currentStep].querySelectorAll("input[required], select[required], textarea[required]");
+            let valid = true;
+            
+            for (let i = 0; i < inputs.length; i++) {
+                if (!inputs[i].checkValidity()) {
+                    inputs[i].reportValidity(); 
+                    valid = false;
+                    break;
+                }
+            }
+            return valid;
+        }
+
+       function generatePDF() {
+            if (!validateForm()) return false;
+            
+            alert("Avisu: Atu halo download ba PDF, favor hili 'Save as PDF' (Simpan sebagai PDF) iha janela tuir mai!");
+            
+            window.print();
+        }
+
+        window.addEventListener('afterprint', function() {
+            document.getElementById("regForm").reset(); 
+            currentStep = 0; 
+            showStep(currentStep); 
+            setTanggalOtomatis();
+
+            window.scrollTo({ top: document.querySelector('.reg-container').offsetTop - 50, behavior: 'smooth' });
+        });
+</script>
+    <div id="footer-placeholder"></div>
+
+    <script src="assets/js/script.js"></script>
+
+</body>
+</html>
