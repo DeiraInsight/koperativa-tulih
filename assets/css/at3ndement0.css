@@ -1,12 +1,7 @@
-/* ========================================
-   STYLE KHUSUS HALAMAN ATENDIMENTU
-   ======================================== */
-
 .services-page {
-    background-color: #fcfcfc; /* Memberi warna dasar yang sangat lembut agar kartu menonjol */
+    background-color: #fcfcfc;
 }
 
-/* --- Judul Bagian --- */
 .section-title {
     text-align: center;
     margin-bottom: 3.5rem;
@@ -23,19 +18,17 @@
     font-size: 1.1rem;
 }
 
-/* --- Grid Layanan --- */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Membagi 3 kolom sama besar */
+    grid-template-columns: repeat(4, 1fr);
     gap: 2.5rem;
     margin-bottom: 4rem;
 }
 
-/* --- Desain Kartu Layanan --- */
 .service-card {
     background: var(--white);
     border-radius: 16px;
-    padding: 2.5rem 2rem;
+    padding: 1.5rem;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     border-top: 5px solid var(--brand-gold);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -48,7 +41,6 @@
     box-shadow: 0 15px 35px var(--shadow-gold);
 }
 
-/* Ikon di dalam kartu */
 .service-icon {
     width: 75px;
     height: 75px;
@@ -57,7 +49,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1.5rem;
+    margin: 0 auto 1.5rem auto;
     transition: background 0.3s ease;
 }
 
@@ -67,12 +59,31 @@
     transition: color 0.3s ease;
 }
 
-/* Animasi perubahan warna ikon saat kartu disentuh */
-.service-card:hover .service-icon {
+.service-icon-big {
+    width: 150px;
+    height: 150px;
+    background: rgba(204, 160, 13, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1.5rem auto 1.5rem auto;
+    transition: background 0.3s ease;
+}
+
+.service-icon-big i {
+    font-size: 6rem;
+    color: var(--brand-gold);
+    transition: color 0.3s ease;
+}
+
+.service-card:hover .service-icon,
+.service-card:hover .service-icon-big {
     background: var(--brand-gold);
 }
 
-.service-card:hover .service-icon i {
+.service-card:hover .service-icon i,
+.service-card:hover .service-icon-big i {
     color: var(--white);
 }
 
@@ -80,16 +91,16 @@
     font-size: 1.4rem;
     color: var(--brand-dark);
     margin-bottom: 1rem;
+    text-align: center;
 }
 
 .service-card p {
     color: #555;
     line-height: 1.6;
-    margin-bottom: 1.5rem;
-    flex-grow: 1; /* Mendorong list ke bawah agar tinggi kartu selalu sejajar */
+    margin-bottom: 0.8rem;
+    flex-grow: 1; 
 }
 
-/* --- List Fitur di Dalam Kartu --- */
 .service-list {
     list-style: none;
     padding: 0;
@@ -111,21 +122,20 @@
 .service-list li i {
     color: var(--brand-gold);
 }
-/* Styling khusus untuk link di dalam list layanan */
+
 .service-list li a {
-    color: inherit; /* Mengikuti warna teks di sekitarnya */
-    text-decoration: none; /* Menghilangkan garis bawah default */
+    color: inherit; 
+    text-decoration: none; 
     transition: color 0.3s ease;
 }
 
 .service-list li a:hover {
-    color: var(--brand-gold); /* Berubah menjadi emas saat disentuh kursor */
+    color: var(--brand-gold); 
 }
 
-/* --- RESPONSIVE UNTUK TABLET & HP --- */
 @media (max-width: 992px) {
     .services-grid {
-        grid-template-columns: repeat(2, 1fr); /* Berubah jadi 2 kolom di tablet */
+        grid-template-columns: repeat(2, 1fr); 
     }
 }
 
@@ -135,11 +145,10 @@
     }
     
     .services-grid {
-        grid-template-columns: 1fr; /* Berubah jadi 1 kolom menyusun ke bawah di HP */
+        grid-template-columns: 1fr; 
     }
-
 }
-/* ===== TESTIMONI SECTION (SLIDER) ===== */
+
 .testimonial-section {
     padding: 3rem 0 5rem;
     background-color: #fcfcfc;
@@ -147,19 +156,19 @@
 
 .testimonial-slider-container {
     position: relative;
-    max-width: 850px; /* Ukuran maksimal slider di tengah layar */
+    max-width: 850px; 
     margin: 0 auto;
-    overflow: hidden; /* Menyembunyikan kartu yang sedang bergeser ke luar */
-    padding: 1rem 0.5rem;
+    overflow: hidden; 
+    padding: 0rem 0rem;
 }
 
 .testimonial-track {
     display: flex;
-    transition: transform 0.8s ease-in-out; /* Animasi geser yang sangat halus */
+    transition: transform 0.8s ease-in-out; 
 }
 
 .testimonial-card {
-    min-width: 100%; /* Setiap kartu akan memakan lebar 100% dari container */
+    min-width: 100%; 
     box-sizing: border-box;
     background: var(--white);
     padding: 3rem;
@@ -212,7 +221,6 @@
     font-weight: 600;
 }
 
-/* Navigasi Titik Bawah (Dots) */
 .testi-dots {
     display: flex;
     justify-content: center;
@@ -238,7 +246,6 @@
     transform: scale(1.2);
 }
 
-/* Responsive Testimoni */
 @media (max-width: 768px) {
     .testimonial-card {
         padding: 2rem 1.5rem;
@@ -247,14 +254,12 @@
         font-size: 1rem;
     }
 }
-/* ==========================================
-   KALKULATOR SIMULASI KREDITU
-   ========================================== */
+
 .koperasi-calc * { box-sizing: border-box; }
 
 .koperasi-calc {
-    max-width: 1900px;
-    margin: 4rem auto; /* Jarak atas bawah dari elemen lain */
+    max-width: 1100px;
+    margin: 4rem auto; 
     padding: 2.5rem 2rem;
     background: var(--white);
     border: 1px solid #eaeaea;
@@ -318,9 +323,11 @@
 .kc-actions {
     display: flex;
     justify-content: center;
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+    padding-bottom: 0 !important;
 }
 
-/* Menggunakan gaya tombol utama TULIH */
 .kc-btn {
     padding: 12px 30px;
     border-radius: 50px;
@@ -339,11 +346,24 @@
     transform: translateY(-3px);
 }
 
-/* Output Kalkulator */
-.kc-msg { margin-top: 1rem; text-align: center; }
-.kc-out { margin-top: 2rem; }
+.kc-msg { 
+    margin: 0 !important; 
+    padding: 0 !important; 
+    min-height: 0 !important; 
+    text-align: center; 
+}
+.kc-msg:empty {
+    display: none !important;
+}
+
+.kc-out { 
+    margin-top: 0.5rem !important; 
+    padding-top: 0 !important; 
+    white-space: normal !important;
+}
 
 .kc-table-wrap {
+    margin-top: 0 !important;
     overflow-x: auto;
     border: 1px solid #eaeaea;
     border-radius: 12px;
@@ -387,10 +407,9 @@
     border-radius: 8px;
     line-height: 1.8;
     color: #444;
-
+    text-align: left;
 }
 
-/* Responsive Kalkulator */
 @media (max-width: 900px){
     .kc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
@@ -399,43 +418,26 @@
     .koperasi-calc { padding: 1.5rem 1rem; margin: 2rem auto; }
 }
 
-/* ==========================================
-   PERBAIKAN JARAK ANTAR SECTION
-   ========================================== */
-
-/* 1. Kurangi jarak bawah services grid */
 .services-grid {
-    margin-bottom: 0.5rem !important; /* sebelumnya 4rem */
+    margin-bottom: 0.1rem !important; 
+    gap: 2rem !important; 
 }
 
-/* 2. Kurangi jarak atas & bawah kalkulator */
 .koperasi-calc {
-    margin: 0.5rem  auto !important; /* sebelumnya 4rem auto */
-    padding: 2rem  1.5rem !important; /* sedikit kurangi padding dalam */
+    margin: 0.5rem auto !important; 
+    padding: 2rem 1.5rem !important; 
 }
 
-/* 3. Kurangi padding testimoni */
 .testimonial-section {
-    padding: 0.5rem  0 3rem !important; /* sebelumnya 3rem 0 5rem */
+    padding: 0.1rem 0 0.1rem !important; 
 }
 
-/* 4. Kurangi padding & margin CTA */
 .home-cta {
-    padding: 0.5rem  0.5rem  !important; /* sebelumnya 4rem 2rem */
-    margin-top: 0.5rem  !important; /* sebelumnya 2rem */
+    padding: 0.5rem 0.5rem !important; 
+    margin-top: 0.5rem !important; 
 }
 
-/* 5. (Opsional) Kurangi jarak antar kartu di grid */
-.services-grid {
-    gap: 0.5rem  !important; /* sebelumnya 2.5rem */
-}
-
-/* 6. Kurangi jarak section title ke konten */
 .section-title {
-    margin-bottom: 0.5rem  !important; /* sebelumnya 3.5rem */
+    margin-bottom: 0.5rem !important; 
 }
 
-/* 7. Kurangi padding hero jika terlalu besar */
-.about-hero {
-    padding: 0.5rem  1rem !important; /* sesuaikan dengan hero bawaan */
-}
