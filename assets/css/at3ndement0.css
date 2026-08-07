@@ -243,7 +243,7 @@
 
 .dot.active {
     background: var(--brand-gold);
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 @media (max-width: 768px) {
