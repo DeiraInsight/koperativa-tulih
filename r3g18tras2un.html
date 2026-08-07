@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formuláriu Registrasaun - Koperativa TULIH</title>
     <meta name="description" content="Formuláriu aplikasaun sai membru foun Kooperativa Tula Liman Hamutuk (TULIH).">
-    
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/r3g18tras2un.css">
-    <link rel="stylesheet" href="assets/css/index.css">
-    <link rel="stylesheet" href="assets/css/k0nt2kt0.css">
     <link rel="stylesheet" href="assets/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/ab0ut.css" />
+    <link rel="stylesheet" href="assets/css/at3ndement0.css" />
+    <link rel="stylesheet" href="assets/css/index.css" />
+    <link rel="stylesheet" href="assets/css/k0nt2kt0.css" />
+    <link rel="stylesheet" href="assets/css/kr1t3r12.css" />
+    <link rel="stylesheet" href="assets/css/r3g18tras2un.css" />
 </head>
 <body>
     <div id="header-placeholder" class="no-print"></div>
@@ -21,12 +22,9 @@
                 <p>Prienxe formuláriu tuir mai atu sai membru Kooperativa TULIH</p>
             </div>
     </section>
-
-    <!-- ================= KOP SURAT (HANYA MUNCUL DI PDF/PRINT) ================= -->
     <div class="print-header">
         <!-- Tambahan Logo di Kanan -->
         <img src="assets/img/log0.webp" alt="Logo TULIH" class="header-logo">
-        
         <div class="header-text">
             <h2>Kooperativa Tula Liman Hamutuk – TULIH</h2>
             <p>Rua dos Martires da Patria, Comoro – Dili, Timor Leste<br>
@@ -35,9 +33,7 @@
         <hr>
         <h3>Formuláriu Aplikasaun Membru</h3>
     </div>
-
     <main class="reg-container">
-        
         <div class="progress-bar no-print">
             <div class="step-indicator active">1</div>
             <div class="step-indicator">2</div>
@@ -45,10 +41,7 @@
             <div class="step-indicator">4</div>
             <div class="step-indicator">5</div>
         </div>
-
         <form id="regForm">
-            
-            <!-- ================= SECTION 1 ================= -->
             <div class="form-step active">
                 <h3>Seksaun 1: Informasaun Pesoál</h3>
                 <div class="input-group">
@@ -112,8 +105,6 @@
                     <textarea name="hela_fatin" rows="2" required placeholder="Enderesu kompletu agora dadaun"></textarea>
                 </div>
             </div>
-
-            <!-- ================= SECTION 2 ================= -->
             <div class="form-step">
                 <h3>Seksaun 2: Informasaun Kona-ba Empregu</h3>
                 <div class="input-group">
@@ -136,9 +127,7 @@
                         <input type="text" name="rendimentu" placeholder="500.00" step="0.01">
                     </div>
                 </div>
-            </div> <!-- PERBAIKAN UTAMA 1: Tag Penutup </div> untuk Section 2 yang sebelumnya hilang ditambahkan di sini -->
-
-            <!-- ================= SECTION 3 ================= -->
+            </div>
             <div class="form-step">
                 <h3>Seksaun 3: Detallu Kooperativa</h3>
                 <div class="input-group">
@@ -170,8 +159,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- ================= SECTION 4 ================= -->
             <div class="form-step">
                 <h3>Seksaun 4: Kontaktu ba Emerjénsia (Edeiru)</h3>
                 <div class="input-group">
@@ -193,8 +180,6 @@
                     <textarea name="hela_emerjensia" rows="2" required placeholder="Enderesu kompletu nia"></textarea>
                 </div>
             </div>
-
-            <!-- ================= SECTION 5 ================= -->
             <div class="form-step">
                 <h3>Seksaun 5: Deklarasaun</h3>
                 <div class="declaration-box">
@@ -205,8 +190,6 @@
                     </label>
                 </div>
             </div>
-
-            <!-- ================= AREA TANDA TANGAN ================= -->
             <div class="signature-section">
                 <div class="input-group">
                     <label>Data</label>
@@ -219,8 +202,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- ================= TOMBOL AKSI ================= -->
             <div class="form-actions no-print">
                 <button type="button" id="prevBtn" class="btn-gold" onclick="nextPrev(-1)">Fila Fali</button>
                 <button type="button" id="nextBtn" class="btn-gold" onclick="nextPrev(1)">Tuir Mai</button>
@@ -232,17 +213,11 @@
     <script>
     <!-- ================= JAVASCRIPT LOGIC MULTI-STEP ================= -->
         let currentStep = 0;
-
-        // ==========================================
-        // 1. SAAT HALAMAN DIBUKA ATAU DI-REFRESH
-        // ==========================================
         document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById("regForm").reset(); // Bersihkan sisa data lama di browser
-            setTanggalOtomatis(); // Panggil fungsi tanggal otomatis
-            showStep(currentStep); // Tampilkan halaman pertama
+            document.getElementById("regForm").reset(); 
+            setTanggalOtomatis(); 
+            showStep(currentStep); 
         });
-
-        // Fungsi khusus untuk memasukkan tanggal hari ini
         function setTanggalOtomatis() {
             const dateInput = document.querySelector('input[name="data_asinatura"]');
             if (dateInput) {
@@ -253,23 +228,15 @@
                 dateInput.value = `${year}-${month}-${day}`;
             }
         }
-
-        // ==========================================
-        // 2. LOGIKA PINDAH HALAMAN (MULTI-STEP)
-        // ==========================================
         function showStep(n) {
             let steps = document.getElementsByClassName("form-step");
             let indicators = document.getElementsByClassName("step-indicator");
-            
-            // Sembunyikan semua step, lalu tampilkan yang aktif
             for (let i = 0; i < steps.length; i++) {
                 steps[i].classList.remove("active");
                 indicators[i].classList.remove("active");
             }
             steps[n].classList.add("active");
             indicators[n].classList.add("active");
-
-            // Atur tampilan tombol Fila Fali / Tuir Mai / Print
             document.getElementById("prevBtn").style.display = (n == 0) ? "none" : "inline-block";
             
             if (n == (steps.length - 1)) {
@@ -284,13 +251,11 @@
         function nextPrev(n) {
             let steps = document.getElementsByClassName("form-step");
             
-            // Validasi Input jika user klik "Next"
             if (n == 1 && !validateForm()) return false;
             
             currentStep = currentStep + n;
             showStep(currentStep);
             
-            // Scroll otomatis ke atas form
             window.scrollTo({ top: document.querySelector('.reg-container').offsetTop - 50, behavior: 'smooth' });
         }
 
@@ -301,7 +266,7 @@
             
             for (let i = 0; i < inputs.length; i++) {
                 if (!inputs[i].checkValidity()) {
-                    inputs[i].reportValidity(); // Memunculkan peringatan wajib isi
+                    inputs[i].reportValidity(); 
                     valid = false;
                     break;
                 }
@@ -310,33 +275,24 @@
         }
 
        function generatePDF() {
-            // Validasi sesi terakhir sebelum print
             if (!validateForm()) return false;
             
-            // Memunculkan pesan petunjuk pintar kepada pendaftar
             alert("Avisu: Atu halo download ba PDF, favor hili 'Save as PDF' (Simpan sebagai PDF) iha janela tuir mai!");
             
-            // Panggil mesin PDF bawaan browser yang sudah kita setting layout A4-nya
             window.print();
         }
 
-        // ==========================================
-        // 3. MEMBERSIHKAN FORM SETELAH SELESAI PRINT
-        // ==========================================
         window.addEventListener('afterprint', function() {
-            document.getElementById("regForm").reset(); // Hapus seluruh isi ketikan
-            currentStep = 0; // Kembalikan sistem ke halaman (Seksaun) 1
-            showStep(currentStep); // Tampilkan Seksaun 1 ke layar
-            setTanggalOtomatis(); // Isi kembali tanggal untuk pendaftar baru
-            
-            // Gulir layar kembali ke paling atas
+            document.getElementById("regForm").reset(); 
+            currentStep = 0; 
+            showStep(currentStep); 
+            setTanggalOtomatis();
+
             window.scrollTo({ top: document.querySelector('.reg-container').offsetTop - 50, behavior: 'smooth' });
         });
 </script>
-    <!-- TEMPAT UNTUK FOOTER -->
     <div id="footer-placeholder"></div>
 
-    <!-- JAVASCRIPT UTAMA -->
     <script src="assets/js/script.js"></script>
 
 </body>
