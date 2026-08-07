@@ -1,0 +1,215 @@
+.criteria-wrapper {
+    max-width: 900px;
+    margin: 4rem auto;
+    padding: 0 1.5rem;
+}
+
+.criteria-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 3rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border-top: 6px solid var(--brand-gold);
+    margin-bottom: 3rem;
+}
+
+.card-header {
+    margin-bottom: 2.5rem;
+    border-bottom: 2px dashed #eee;
+    padding-bottom: 1.5rem;
+}
+
+.card-header h2 {
+    color: var(--brand-dark);
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.card-header h2 i {
+    color: var(--brand-gold);
+    font-size: 2rem;
+}
+
+.criteria-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: criteria-counter;
+}
+
+.criteria-list > li {
+    position: relative;
+    padding-left: 4.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.criteria-list > li:last-child {
+    margin-bottom: 0;
+}
+
+.criteria-list > li::before {
+    content: counter(criteria-counter);
+    counter-increment: criteria-counter;
+    position: absolute;
+    left: 0;
+    top: -2px;
+    background: var(--brand-gold);
+    color: var(--white);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 10px rgba(204, 160, 13, 0.3);
+}
+
+.criteria-list h3 {
+    color: var(--brand-teal);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.criteria-list p {
+    color: #555;
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+.sub-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+.sub-list li {
+    background: #fcfcfc;
+    border: 1px solid #eee;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: #444;
+}
+
+.sub-list li i {
+    color: var(--brand-teal);
+    margin-top: 4px;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    margin-top: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #eee;
+}
+
+.tulih-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 500px;
+}
+
+.tulih-table th {
+    background: var(--brand-dark);
+    color: var(--white);
+    padding: 14px 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.tulih-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #eee;
+    color: #333;
+}
+
+.tulih-table tbody tr:hover {
+    background-color: #f9fbff;
+}
+
+.tulih-table .text-center { text-align: center; }
+.tulih-table .text-right { text-align: right; }
+.tulih-table .text-gold { color: var(--brand-gold); font-weight: bold; font-size: 1.1rem; }
+
+.total-row td {
+    background-color: var(--brand-teal);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 16px;
+}
+
+.total-row td.text-gold {
+    color: #ffd700;
+}
+
+.optional-card {
+    border-top-color: var(--brand-teal);
+    background: #f8fbff;
+}
+
+.optional-list {
+    list-style: none;
+    padding: 0;
+}
+
+.optional-list li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: #444;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed #ddd;
+}
+
+.optional-list li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.optional-list li i {
+    color: var(--brand-gold);
+    background: var(--white);
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+}
+.cta-btn {
+
+    text-align: center;
+    color: var(--white);
+
+}
+
+@media (max-width: 768px) {
+    .criteria-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .criteria-list > li {
+        padding-left: 0;
+    }
+    
+    .criteria-list > li::before {
+        position: relative;
+        margin-bottom: 1rem;
+    }
+    
+    .card-header h2 {
+        font-size: 1.5rem;
+    }
+}
