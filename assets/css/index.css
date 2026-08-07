@@ -1,8 +1,3 @@
-/* ========================================
-   STYLE KHUSUS BERANDA (style_home.css)
-   ======================================== */
-
-/* ===== HERO SECTION ===== */
 .home-hero {
     position: relative;
     min-height: 50vh; /* Membuat spanduk memenuhi 85% tinggi layar */
@@ -10,9 +5,8 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    /* Anda bisa mengganti URL di bawah dengan gambar kantor TULIH jika ada */
     background: url('../img/hero-bg.jpg') center/cover no-repeat;
-    background-color: var(--brand-dark); /* Warna cadangan jika gambar gagal dimuat */
+    background-color: var(--brand-dark);
     overflow: hidden;
 }
 
@@ -22,7 +16,6 @@
     left: 0;
     width: 100%;
     height: 100%;
-    /* Gradien overlay dari dark ke teal dengan transparansi agar gambar latar tetap terlihat */
     background: linear-gradient(135deg, rgba(62, 76, 77, 0.9), rgba(91, 108, 109, 0.8));
     z-index: 1;
 }
@@ -59,7 +52,6 @@
     flex-wrap: wrap;
 }
 
-/* Tombol Beranda */
 .btn-primary, .btn-outline {
     display: inline-block;
     padding: 1rem 2.5rem;
@@ -94,12 +86,11 @@
     transform: translateY(-3px);
 }
 
-/* ===== KEUNGGULAN (FEATURES) ===== */
 .home-features {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    margin-top: -60px; /* Menarik kartu naik sedikit ke atas spanduk */
+    margin-top: -100px;
     position: relative;
     z-index: 3;
     padding-bottom: 4rem;
@@ -138,7 +129,6 @@
     font-size: 0.95rem;
 }
 
-/* ===== CUPLIKAN TENTANG KAMI ===== */
 .home-about {
     background-color: #fcfcfc;
     padding: 5rem 0;
@@ -201,13 +191,10 @@
     box-shadow: 0 15px 40px var(--shadow-gold);
 }
 
-
-
-/* ===== RESPONSIVE ===== */
 @media (max-width: 992px) {
     .home-features {
         grid-template-columns: repeat(2, 1fr);
-        margin-top: 0; /* Reset margin negatif di layar kecil */
+        margin-top: 0;
     }
     
     .about-snippet-grid {
@@ -216,7 +203,7 @@
     }
     
     .about-snippet-image {
-        grid-row: 1; /* Pindahkan gambar ke atas teks di layar kecil */
+        grid-row: 1;
     }
 }
 
@@ -238,31 +225,21 @@
     }
 }
 
-
-
-/* ==========================================
-   PERBAIKAN FINAL JARAK ANTAR SECTION
-   ========================================== */
-
-/* 1. Rapatkan jarak bawah fitur (Harus pakai padding, bukan margin) */
 .home-features {
-    padding-bottom: 0.5rem !important; /* Memangkas jarak kosong 4rem di bawah fitur */
+    padding-bottom: 0.5rem !important;
     margin-bottom: 0 !important;
 }
 
-/* 2. Rapatkan jarak atas & bawah section "Kona-ba Ami" */
 .home-about {
-    padding: 0.5rem 0.5rem !important; /* Memangkas jarak kosong 5rem menjadi 2.5rem */
+    padding: 0.5rem 0.5rem !important;
     margin: 0 auto !important;
 }
 
-/* 3. Rapatkan jarak Call to Action (CTA) di bagian paling bawah */
 .home-cta {
-    padding: 0.5rem 0 3rem !important; /* Merapatkan jarak luar CTA ke section atasnya */
+    padding: 0.5rem 0 3rem !important;
     margin-top: 0 !important;
 }
 
-/* (Opsional) Merapatkan bagian dalam kotak gradien CTA agar tidak terlalu gemuk */
 .cta-box {
     padding: 2rem 1.5rem !important; 
 }
